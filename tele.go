@@ -44,7 +44,7 @@ var sitesParsed int = 0
 func main () {
   var urls []string
 
-  resp, _ := http.Get("https://i...content-available-to-author-only...m.org/contest")
+  resp, _ := http.Get("https://instantview.telegram.org/contest")
 
   defer resp.Body.Close()
 
@@ -53,7 +53,7 @@ func main () {
   iter := expr.Evaluate(htmlquery.CreateXPathNavigator(doc)).(*xpath.NodeIterator)
 
   for iter.MoveNext() {
-    urls = append(urls, "https://i...content-available-to-author-only...m.org" + iter.Current().Value())
+    urls = append(urls, "https://instantview.telegram.org" + iter.Current().Value())
   }
 
   fmt.Printf("Sites in contest: %d \n\n", len(urls))
